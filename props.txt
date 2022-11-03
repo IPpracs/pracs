@@ -1,0 +1,57 @@
+6a)props
+App.js code:
+import './App.css';
+import Welcome from './Welcome';
+
+function App() {
+  return (
+    <div className="App">
+      <Welcome name="Aaditya" />
+      <Welcome name="xyz" />
+      <Welcome name="ABC" />
+    </div>
+  )
+}
+export default App;
+
+Welcome.js code:
+import React from 'react'
+const Welcome = (props) => {
+  return (
+    <div>
+      <h1>Hello, {props.name}</h1>
+    </div>
+  )
+}
+export default Welcome;
+
+6b)state in react
+app.js code:
+import React from "react";
+
+class App extends React.Component {
+constructor(props) {
+	super(props);
+	this.state = { change: true };
+}
+render() {
+	return (
+	<div>
+		<button
+		onClick={() => {
+			this.setState({ change: !this.state.change });
+		}}
+		>
+		Click Here!
+		</button>
+		{this.state.change ? (
+		<h1>This is pervious state</h1>
+		) : (
+		<h1>This is updated state</h1>
+		)}
+	</div>
+	);
+}
+}
+
+export default App;

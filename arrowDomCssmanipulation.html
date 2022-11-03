@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      #button_div {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Arrow Function, DOM Manipulation, CSS Manipulation</h1>
+
+    <div id="box_div" style="border: 2px solid black; min-height: 300px">
+      <div
+        id="box_div2"
+        style="border: 2px solid black; min-height: 200px; margin: 50px;"
+      ></div>
+    </div>
+
+    <div id="button_div">
+      <button onclick="change_color()">Change color</button>
+      <button onclick="Remove_div()">Remove Div</button>
+      <button onclick="Add_div()">Add Text</button>
+    </div>
+
+    <script>
+      change_color = () => {
+        document.getElementById("box_div").style.background = "yellow";
+      };
+      Remove_div = () => {
+        document.getElementById("box_div2").remove();
+      };
+      Add_div = () => {
+        document.getElementById("box_div").append("Text");
+      };
+    </script>
+  </body>
+</html>

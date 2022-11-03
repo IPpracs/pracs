@@ -1,0 +1,153 @@
+Router
+use npm i -D react-router-dom first
+
+App.js Code:
+import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Home from "./Home";
+import Blogs from "./Blogs";
+import Contact from "./Contact";
+import NoPage from "./NoPage";
+
+function App() {
+  return (
+    // <div className="App">
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    //</div>
+  )
+}
+export default App;
+
+Layout.js code:
+
+import { Outlet, Link } from "react-router-dom";
+const Layout = () => {
+  return (
+    <>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/blogs">Blogs</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Outlet />
+    </>
+  )
+};
+export default Layout;
+
+Home.js code:
+import React from 'react'
+
+const Home = () => {
+  return (
+    <div>
+      <h1>This is Home</h1>
+    </div>
+  )
+}
+export default Home
+
+Blogs.js code:
+import React from 'react'
+const Blogs = () => {
+  return (
+    <div>
+      <h1>This is Blogs</h1>
+    </div>
+  )
+}
+export default Blogs
+
+Contact.js code:
+import React from 'react'
+
+const Blogs = () => {
+  return (
+    <div>
+      <h1>This is Contact</h1>
+    </div>
+  )
+}
+export default Blogs
+
+NoPage.js code:
+import React from 'react'
+const NoPage = () => {
+  return (
+    <div>
+      <h1>404</h1>
+    </div>
+  )
+}
+export default NoPage
+
+React animations
+run npm install @formkit/auto-animate
+npm install @tabler/icons
+App.js code:
+import { useState, useRef, useEffect } from "react";
+import autoAnimate from "@formkit/auto-animate";
+import { IconSelector } from "@tabler/icons";
+
+function App() {
+  const [open, setOpen] = useState(false);
+  const parentRef = useRef();
+
+  useEffect(() => {
+    if (parentRef.current) {
+      autoAnimate(parentRef.current);
+    }
+  }, [parentRef]);
+
+  const showMore = () => setOpen(!open);
+  return (
+    <div className="App">
+      <div className="flex justify-center items-center flex-col space-y-5 p-5">
+      <h1 className="font-bold text-xl text-blue-600">
+        Frequently Asked Questions
+      </h1>
+      <div
+        className="px-2 cursor-pointer py-1 border-2 border-gray-200 w-[400px] rounded-lg"
+        ref={parentRef}
+      >
+        <div
+          onClick={showMore}
+          className="select-none font-bold w-full flex justify-between items-center"
+        >
+          <span>Show More</span>
+          <IconSelector size={20} />
+        </div>
+        {open && (
+          <p className="p-2 italic">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos,
+            libero! Excepturi voluptatum temporibus repellendus rem iure, aut
+            voluptate nisi enim vitae facere minima aliquid natus odio sequi est
+            dolores provident.
+          </p>
+        )}
+      </div>
+    </div>
+    </div>
+  )
+}
+
+export default App;

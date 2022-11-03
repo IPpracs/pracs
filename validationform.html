@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Validation</title>
+    </head>
+
+    <body>
+        <form>
+            First Name: <input type="text" id="f_name"> (Begin with capital letter)
+        <input type="button" value="Validate" onclick="validate_fname()"/> <br/> <br/>
+        Last Name: <input type="text" id="l_name"> (Begin with capital letter)
+        <input type="button" value="Validate" onclick="validate_lname()"/> <br/> <br/>
+        Mobile No. <input type="text" id="p_no"> (10 digit number)
+        <input type="button" value="Validate" onclick="validate_num()"/> <br/> <br/>
+        Email-id: <input type="text" id="e_id"> (Standard)
+        <input type="button" value="Validate" onclick="validate_email()"/> <br/> <br/>
+        Password: <input type="text" id="pass"> (Minimum 8 and Maximum 10 characters with at least 1 capital letter, 1 small letter, 1 special character and 1 number)
+        <input type="button" value="Validate" onclick="validate_pass()"/> <br/> <br/> 
+    
+        </form>
+        
+        <script>
+            function validate_fname()
+            {
+                var f_nme = document.getElementById("f_name").value;
+                var re = /^[A-Za-z]+$/;
+                
+                /*if(f_nme.charAt(0)!=f_nme.charAt(0).toUpperCase())
+                {
+                    window.alert("Invalid First name.");
+                }*/
+                
+                if(re.test(f_nme))
+                {
+                    window.alert("Valid First name."); 
+                }
+                else
+                {
+                    window.alert("Invalid First name.");
+                }
+            }
+
+            function validate_lname()
+            {
+                var l_nme = document.getElementById("l_name").value;
+                var re = /^[A-Za-z]+$/;
+
+                if(l_nme.charAt(0)!=l_nme.charAt(0).toUpperCase())
+                {
+                    window.alert("Invalid Last name.");
+                }
+                else if(re.test(l_nme))
+                {
+                    window.alert("Valid Last name."); 
+                }
+                else
+                {
+                    window.alert("Invalid Last name.");
+                }
+            }
+
+            function validate_num()
+            {
+                var phn_no = document.getElementById("p_no").value;
+                var re = /^[0-9]{10}$/;
+
+                if(re.test(phn_no))
+                {
+                    window.alert("Valid Mobile number."); 
+                }
+                else
+                {
+                    window.alert("Invalid Mobile number.");
+                }
+            }
+
+            function validate_email()
+            {
+                var email = document.getElementById("e_id").value;
+                var re = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+
+                if (re.test(email))
+                {
+                    window.alert("Valid Email-id."); 
+                }
+                else
+                {
+                    window.alert("Invalid Email-id."); 
+                }
+            }
+
+            function validate_pass()
+            {
+                var pw = document.getElementById("pass").value;
+
+                if((pw.match(/[a-z]/g))&&(pw.match(/[A-Z]/g))&&(pw.match(/[0-9]/g))&&(pw.match(/[^\w]/g))&&(pw.length>=8)&&(pw.length<=10))
+                {
+                    window.alert("Valid Password."); 
+                }
+                else
+                {
+                    window.alert("Invalid Password.");
+                }
+            }
+        </script>
+    </body>
+</html>
