@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+
+
+    <script>
+        // Inheritance
+        class Car {
+            constructor(name) {
+                this.name = name;
+            }
+            returnname() {
+                return this.name;
+            }
+        }
+        class Audi extends Car {
+            constructor(name, type) {
+                super(name);
+                this.type = type;
+            }
+            present() {
+                return "The name of car is " + this.returnname() + " and the type of car is " + this.type;
+            }
+        }
+        let myCar = new Audi("Audi", "BussyWagon");
+        document.getElementById("demo").innerHTML = myCar.present();
+
+
+        // Iterators
+        const arr = [1,2,3,4,5,6,7,8,9,0];
+        let arrIterator = arr[Symbol.iterator]();
+
+        console.log(arrIterator.next());
+        console.log(arrIterator.next());
+        console.log(arrIterator.next());
+        console.log(arrIterator.next());
+        console.log(arrIterator.next());
+
+        
+        // Generators
+        function* thisisgenerator() {
+            console.log("Lets Go");
+            yield 1;
+            console.log("Lets Go");
+            yield 2;
+            console.log("Lets Go");
+            yield 2;
+            console.log("Lets Go");
+            yield 2;
+        }
+        sheesh = thisisgenerator();
+        sheesh.next()
+        sheesh.next()
+        sheesh.next()
+
+
+    </script>
+</body>
+</html>
