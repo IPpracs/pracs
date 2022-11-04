@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* NAVBAR */
+.nav_bar {
+    background-color: #104a86;
+    padding: 14px;
+}
+#nav_bar_ele {
+    font-size:25px;
+    float: right;
+    text-decoration: none;
+    padding-right: 20px;
+    color: black;
+}
+
+/* MIDDLE */
+.grid_parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+.img_box {
+    max-width:100%;
+    background-image: url("./images/godofwar.jpg");
+    background-size: 1000px ;
+    background-repeat: no-repeat;
+}
+
+.text_box {
+    background-color: antiquewhite;
+    padding: 20px;
+}

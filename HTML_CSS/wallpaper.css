@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* NAVBAR */
+.nav_bar {
+    background-color: coral;
+    padding: 14px;
+}
+#nav_bar_ele {
+    font-size:25px;
+    float: right;
+    text-decoration: none;
+    padding-right: 20px;
+    color: black;
+}
+
+/* Gallery */
+.Gallery {
+    display: grid;
+    grid-row: inherit;
+    max-width: 100%;
+}
+.wall {
+    max-width: 100%;
+    min-width: 100%;
+    margin: 10px;
+}
